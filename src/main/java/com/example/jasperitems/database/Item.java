@@ -24,6 +24,10 @@ public class Item {
     @Column(name = "price", nullable = false)
     private float price;
 
+    public Item()
+    {
+
+    }
 
     public Item(String item_name, float price) {
         this.item_name = item_name;
