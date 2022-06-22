@@ -11,14 +11,14 @@
         <![CDATA[]]>
     </queryString>
 
-    <field name="id" class="java.lang.String">
-        <fieldDescription><![CDATA[country]]></fieldDescription>
+    <field name="item_name" class="java.lang.String">
+        <fieldDescription><![CDATA[item_name]]></fieldDescription>
     </field>
-    <field name="name" class="java.lang.String">
-        <fieldDescription><![CDATA[age]]></fieldDescription>
+    <field name="id" class="java.lang.Long">
+        <fieldDescription><![CDATA[id]]></fieldDescription>
     </field>
-    <field name="item_price" class="java.lang.Float">
-        <fieldDescription><![CDATA[name]]></fieldDescription>
+    <field name="price" class="java.lang.Float">
+        <fieldDescription><![CDATA[price]]></fieldDescription>
     </field>
 
     <group name="dummy">
@@ -72,14 +72,14 @@
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font size="9"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{item_price}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="207" y="0" width="121" height="15"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font size="9"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{item_name}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="0" y="0" width="136" height="15"/>

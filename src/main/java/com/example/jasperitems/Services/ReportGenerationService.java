@@ -2,6 +2,7 @@ package com.example.jasperitems.Services;
 
 import com.example.jasperitems.database.Item;
 //import com.example.jasperitems.database.ItemRepository;
+import com.example.jasperitems.database.ItemRepository;
 import lombok.AllArgsConstructor;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -21,21 +22,19 @@ import java.util.Map;
 @AllArgsConstructor
 public class ReportGenerationService {
 
-//    private final ItemRepository itemRepository;
+    private final ItemRepository itemRepository;
 
     public List<Item> doGeneratePdfReportFromDbItems() throws FileNotFoundException, JRException {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Book", 14.4f));
-        items.add(new Item("Pen", 10.4f));
-//        items = itemRepository.findAll();
-        InputStream inputStream = new FileInputStream(".\\src\\main\\resources\\reports\\employee.jrxml");
+        items = itemRepository.findAll();
+        InputStream inputStream = new FileInputStream(".\\src\\main\\resources\\reports\\item.jrxml");
         JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(items);
         Map parameters = new HashMap();
         JasperDesign jasperDesign = JRXmlLoader.load(inputStream);
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, beanColDataSource);
-        JasperExportManager.exportReportToPdfFile(jasperPrint, ".\\src\\main\\resources\\reports\\employee.pdf");
+        JasperExportManager.exportReportToPdfFile(jasperPrint, ".\\src\\main\\resources\\reports\\item.pdf");
         return items;
     }
 }
